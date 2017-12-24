@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     45886,       1096]
-NotebookOptionsPosition[     42406,       1032]
-NotebookOutlinePosition[     42941,       1053]
-CellTagsIndexPosition[     42898,       1050]
+NotebookDataLength[     45570,       1090]
+NotebookOptionsPosition[     42091,       1026]
+NotebookOutlinePosition[     42626,       1047]
+CellTagsIndexPosition[     42583,       1044]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -642,147 +642,141 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{
+  RowBox[{"startMenu", "[", "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
    RowBox[{
-    RowBox[{"startMenu", "[", "]"}], " ", ":=", " ", 
-    RowBox[{"Module", "[", 
+    RowBox[{"{", 
      RowBox[{
-      RowBox[{"{", 
-       RowBox[{
-       "n", ",", " ", "i", ",", " ", "toAppend", ",", " ", "perm", ",", " ", 
-        "gNecklace", ",", " ", "pBases", ",", " ", "intervals", ",", " ", 
-        "continue", ",", " ", "continueInput"}], "}"}], ",", " ", 
-      "\[IndentingNewLine]", 
+     "n", ",", " ", "i", ",", " ", "toAppend", ",", " ", "perm", ",", " ", 
+      "gNecklace", ",", " ", "pBases", ",", " ", "intervals", ",", " ", 
+      "continue", ",", " ", "continueInput"}], "}"}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"n", " ", "=", " ", 
+      RowBox[{"Input", "[", "\"\<Enter length of permutation:\>\"", "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
       RowBox[{
-       RowBox[{"n", " ", "=", " ", 
-        RowBox[{"Input", "[", "\"\<Enter length of permutation:\>\"", "]"}]}],
+       RowBox[{"n", "\[Equal]", "x"}], ",", 
+       RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"perm", " ", "=", " ", 
+      RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"i", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{
+       RowBox[{"i", " ", "\[LessEqual]", " ", "n"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"toAppend", "  ", "=", " ", 
+         RowBox[{
+         "Input", "[", "\"\<Enter number. Leave blank to exit\>\"", "]"}]}], 
         ";", "\[IndentingNewLine]", 
-       RowBox[{"If", "[", 
-        RowBox[{
-         RowBox[{"n", "\[Equal]", "x"}], ",", 
-         RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"perm", " ", "=", " ", 
-        RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-       RowBox[{"i", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
-       RowBox[{"While", "[", 
-        RowBox[{
-         RowBox[{"i", " ", "\[LessEqual]", " ", "n"}], ",", 
-         "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{"toAppend", "  ", "=", " ", 
-           RowBox[{
-           "Input", "[", "\"\<Enter number. Leave blank to exit\>\"", "]"}]}],
-           ";", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
-            RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"While", "[", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"MemberQ", "[", 
-              RowBox[{"perm", ",", " ", "toAppend"}], "]"}], " ", "||", " ", 
-             RowBox[{"toAppend", " ", ">", " ", "n"}]}], ",", " ", 
-            "\[IndentingNewLine]", 
-            RowBox[{
-             RowBox[{"toAppend", " ", "=", " ", 
-              RowBox[{
-              "Input", "[", 
-               "\"\<This number is already in the permutation or is > than \
-the permutation. Try again.\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
-               RowBox[{"Return", "[", "]"}]}], "]"}], ";"}]}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"AppendTo", "[", 
-           RowBox[{"perm", ",", " ", "toAppend"}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"\"\<Permutation:\>\"", ",", " ", "perm"}], "]"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"gNecklace", " ", "=", " ", 
-        RowBox[{"GrassmannNecklace", "[", "perm", "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"\"\<Grassman Necklace:\>\"", ",", " ", "gNecklace"}], "]"}], 
-       ";", "\[IndentingNewLine]", 
-       RowBox[{"pBases", " ", "=", " ", 
-        RowBox[{"PositroidBases", "[", "gNecklace", "]"}]}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"Print", "[", 
-        RowBox[{"\"\<Positroid Bases:\>\"", ",", " ", "pBases"}], "]"}], ";", 
-       "\[IndentingNewLine]", "\[IndentingNewLine]", 
-       RowBox[{"continue", " ", "=", " ", "True"}], ";", 
-       "\[IndentingNewLine]", 
-       RowBox[{"While", "[", 
-        RowBox[{"continue", ",", "\[IndentingNewLine]", 
+          RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
+          RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
          RowBox[{
-          RowBox[{"n", " ", "=", " ", 
-           RowBox[{
-           "Input", "[", "\"\<Enter number of intervals or ints:\>\"", 
-            "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"Print", "[", 
-           RowBox[{"\"\<N:\>\"", ",", "n"}], "]"}], ";", 
+          RowBox[{
+           RowBox[{"MemberQ", "[", 
+            RowBox[{"perm", ",", " ", "toAppend"}], "]"}], " ", "||", " ", 
+           RowBox[{"toAppend", " ", ">", " ", "n"}]}], ",", " ", 
           "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
-            RowBox[{"n", "\[Equal]", "0"}], ",", 
-            RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"intervals", "=", " ", 
-           RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"i", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
-          RowBox[{"toAppend", " ", "=", " ", "0"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"While", "[", 
-           RowBox[{
-            RowBox[{"i", " ", "\[LessEqual]", " ", "n"}], ",", 
-            "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"toAppend", " ", "=", " ", 
             RowBox[{
-             RowBox[{"toAppend", "  ", "=", " ", 
-              RowBox[{
-              "Input", "[", 
-               "\"\<Enter interval or int. Intervals must be seperated by \
+            "Input", "[", 
+             "\"\<This number is already in the permutation or is > than the \
+permutation. Try again.\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
+             RowBox[{"Return", "[", "]"}]}], "]"}], ";"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"perm", ",", " ", "toAppend"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Permutation:\>\"", ",", " ", "perm"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"gNecklace", " ", "=", " ", 
+      RowBox[{"GrassmannNecklace", "[", "perm", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Grassman Necklace:\>\"", ",", " ", "gNecklace"}], "]"}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"pBases", " ", "=", " ", 
+      RowBox[{"PositroidBases", "[", "gNecklace", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"\"\<Positroid Bases:\>\"", ",", " ", "pBases"}], "]"}], ";", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"continue", " ", "=", " ", "True"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"While", "[", 
+      RowBox[{"continue", ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"n", " ", "=", " ", 
+         RowBox[{
+         "Input", "[", "\"\<Enter number of intervals or ints:\>\"", "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<N:\>\"", ",", "n"}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"n", "\[Equal]", "0"}], ",", 
+          RowBox[{"Return", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"intervals", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"i", " ", "=", " ", "1"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"toAppend", " ", "=", " ", "0"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"While", "[", 
+         RowBox[{
+          RowBox[{"i", " ", "\[LessEqual]", " ", "n"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"toAppend", "  ", "=", " ", 
+            RowBox[{
+            "Input", "[", 
+             "\"\<Enter interval or int. Intervals must be seperated by \
 commas. Leave blank to stop\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"n", "\[Equal]", "x"}], ",", 
-               RowBox[{"Return", "[", "]"}]}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"If", "[", 
-              RowBox[{
-               RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
-               RowBox[{"Break", "[", "]"}]}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"AppendTo", "[", 
-              RowBox[{"intervals", ",", " ", "toAppend"}], "]"}], ";", 
-             "\[IndentingNewLine]", 
-             RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"Print", "[", 
-           RowBox[{"\"\<Intervals:\>\"", ",", "intervals"}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"Print", "[", 
-           RowBox[{"\"\<Rank: \>\"", ",", " ", 
-            RowBox[{"rankFind", "[", 
-             RowBox[{"intervals", ",", " ", "pBases"}], "]"}]}], "]"}], ";", 
-          "\[IndentingNewLine]", 
-          RowBox[{"continueInput", " ", "=", " ", 
-           RowBox[{
-           "Input", "[", 
-            "\"\<Would you like to enter another interval? N or x to quit, \
-enter to continue.\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
-           RowBox[{
+           RowBox[{"If", "[", 
             RowBox[{
-             RowBox[{"continueInput", " ", "\[Equal]", " ", "N"}], " ", "||", 
-             " ", 
-             RowBox[{"continueInput", " ", "\[Equal]", " ", "x"}]}], ",", " ", 
-            RowBox[{"return", "[", "]"}]}], "\[IndentingNewLine]", "]"}]}]}], 
-        "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]}], 
-   "\[IndentingNewLine]"}], "]"}]], "Input",
+             RowBox[{"n", "\[Equal]", "x"}], ",", 
+             RowBox[{"Return", "[", "]"}]}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"toAppend", " ", "\[Equal]", " ", "Null"}], ",", " ", 
+             RowBox[{"Break", "[", "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"intervals", ",", " ", "toAppend"}], "]"}], ";", 
+           "\[IndentingNewLine]", 
+           RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<Intervals:\>\"", ",", "intervals"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Print", "[", 
+         RowBox[{"\"\<Rank: \>\"", ",", " ", 
+          RowBox[{"rankFind", "[", 
+           RowBox[{"intervals", ",", " ", "pBases"}], "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"continueInput", " ", "=", " ", 
+         RowBox[{
+         "Input", "[", 
+          "\"\<Would you like to enter another interval? N or x to quit, \
+enter to continue.\>\"", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"continueInput", " ", "\[Equal]", " ", "N"}], " ", "||", 
+           " ", 
+           RowBox[{"continueInput", " ", "\[Equal]", " ", "x"}]}], ",", " ", 
+          RowBox[{"return", "[", "]"}]}], "\[IndentingNewLine]", "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
  InitializationCell->True,
  CellChangeTimes->{{3.7230765856815357`*^9, 3.723076674642722*^9}, {
    3.7230767547892966`*^9, 3.723076772263297*^9}, {3.723076910220256*^9, 
@@ -820,7 +814,7 @@ enter to continue.\>\"", "]"}]}], ";", "\[IndentingNewLine]",
    3.7230821405338497`*^9, 3.7230821434800186`*^9}, {3.723082274957548*^9, 
    3.723082280224863*^9}, {3.7230823956962185`*^9, 3.7230824237868414`*^9}, 
    3.7230824717715893`*^9, 3.7230825158350983`*^9, {3.723082549422022*^9, 
-   3.7230825500270567`*^9}},
+   3.7230825500270567`*^9}, {3.7230853792090425`*^9, 3.723085379397052*^9}},
  EmphasizeSyntaxErrors->
   True,ExpressionUUID->"950748e4-b794-4297-b25b-99a14fea9ba2"],
 
@@ -1074,28 +1068,28 @@ Cell[25214, 607, 474, 13, 28, "Input",ExpressionUUID->"21673787-5d5e-4637-a8a3-5
 Cell[25691, 622, 958, 15, 32, "Output",ExpressionUUID->"c0ad9ef8-fd01-4005-a63b-8acb2b8d4c62"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26686, 642, 9179, 182, 843, "Input",ExpressionUUID->"950748e4-b794-4297-b25b-99a14fea9ba2",
+Cell[26686, 642, 8864, 176, 824, "Input",ExpressionUUID->"950748e4-b794-4297-b25b-99a14fea9ba2",
  InitializationCell->True],
-Cell[35868, 826, 608, 12, 41, "Message",ExpressionUUID->"449f957f-863f-4b7d-8da9-e0aca5dcd55e"]
+Cell[35553, 820, 608, 12, 41, "Message",ExpressionUUID->"449f957f-863f-4b7d-8da9-e0aca5dcd55e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[36513, 843, 211, 4, 27, "Input",ExpressionUUID->"c39c295f-bb6d-4413-a1f0-8899d76813fa"],
+Cell[36198, 837, 211, 4, 27, "Input",ExpressionUUID->"c39c295f-bb6d-4413-a1f0-8899d76813fa"],
 Cell[CellGroupData[{
-Cell[36749, 851, 355, 9, 22, "Print",ExpressionUUID->"7b024f5d-675d-4dcf-bbb7-f0d0533acd46"],
-Cell[37107, 862, 449, 12, 22, "Print",ExpressionUUID->"6d5e8007-2eff-4180-a9dc-b3c2caca647f"],
-Cell[37559, 876, 445, 12, 22, "Print",ExpressionUUID->"412480f2-ea44-4217-a666-6c6ab8ce40fb"],
-Cell[38007, 890, 268, 7, 22, "Print",ExpressionUUID->"eeb9a66a-bd6e-4cd7-847e-fd87dc07cdb5"],
-Cell[38278, 899, 338, 9, 22, "Print",ExpressionUUID->"d7b3015e-4ef7-4b91-8021-227fbe69acad"],
-Cell[38619, 910, 329, 9, 22, "Print",ExpressionUUID->"d287c965-89a5-4beb-8ef5-1de9cd3ba811"],
-Cell[38951, 921, 282, 7, 22, "Print",ExpressionUUID->"4989ccc6-a947-4558-96af-383635619cfe"],
-Cell[39236, 930, 302, 8, 22, "Print",ExpressionUUID->"49c1218d-d4fb-404c-93b3-90586da2d59e"],
-Cell[39541, 940, 560, 16, 22, "Print",ExpressionUUID->"8a625023-c53a-4ffc-af26-92cc307c0d4c"],
-Cell[40104, 958, 284, 7, 22, "Print",ExpressionUUID->"44575bf4-177e-43d9-afff-04830db8a8fa"],
-Cell[40391, 967, 302, 8, 22, "Print",ExpressionUUID->"c4ff799f-078f-4d67-b2c9-d5c117f8f9ae"],
-Cell[40696, 977, 560, 16, 22, "Print",ExpressionUUID->"63e90454-58ee-433d-8eff-10dbce35f508"],
-Cell[41259, 995, 276, 6, 22, "Print",ExpressionUUID->"1848e964-2bd0-42b2-8947-47bf643b7df0"],
-Cell[41538, 1003, 299, 7, 22, "Print",ExpressionUUID->"c8af0cff-5de7-4b40-8c59-6c3826b395c7"],
-Cell[41840, 1012, 538, 16, 22, "Print",ExpressionUUID->"4612f444-01ae-4f83-b307-bd74455fb1cc"]
+Cell[36434, 845, 355, 9, 22, "Print",ExpressionUUID->"7b024f5d-675d-4dcf-bbb7-f0d0533acd46"],
+Cell[36792, 856, 449, 12, 22, "Print",ExpressionUUID->"6d5e8007-2eff-4180-a9dc-b3c2caca647f"],
+Cell[37244, 870, 445, 12, 22, "Print",ExpressionUUID->"412480f2-ea44-4217-a666-6c6ab8ce40fb"],
+Cell[37692, 884, 268, 7, 22, "Print",ExpressionUUID->"eeb9a66a-bd6e-4cd7-847e-fd87dc07cdb5"],
+Cell[37963, 893, 338, 9, 22, "Print",ExpressionUUID->"d7b3015e-4ef7-4b91-8021-227fbe69acad"],
+Cell[38304, 904, 329, 9, 22, "Print",ExpressionUUID->"d287c965-89a5-4beb-8ef5-1de9cd3ba811"],
+Cell[38636, 915, 282, 7, 22, "Print",ExpressionUUID->"4989ccc6-a947-4558-96af-383635619cfe"],
+Cell[38921, 924, 302, 8, 22, "Print",ExpressionUUID->"49c1218d-d4fb-404c-93b3-90586da2d59e"],
+Cell[39226, 934, 560, 16, 22, "Print",ExpressionUUID->"8a625023-c53a-4ffc-af26-92cc307c0d4c"],
+Cell[39789, 952, 284, 7, 22, "Print",ExpressionUUID->"44575bf4-177e-43d9-afff-04830db8a8fa"],
+Cell[40076, 961, 302, 8, 22, "Print",ExpressionUUID->"c4ff799f-078f-4d67-b2c9-d5c117f8f9ae"],
+Cell[40381, 971, 560, 16, 22, "Print",ExpressionUUID->"63e90454-58ee-433d-8eff-10dbce35f508"],
+Cell[40944, 989, 276, 6, 22, "Print",ExpressionUUID->"1848e964-2bd0-42b2-8947-47bf643b7df0"],
+Cell[41223, 997, 299, 7, 22, "Print",ExpressionUUID->"c8af0cff-5de7-4b40-8c59-6c3826b395c7"],
+Cell[41525, 1006, 538, 16, 22, "Print",ExpressionUUID->"4612f444-01ae-4f83-b307-bd74455fb1cc"]
 }, Open  ]]
 }, Open  ]]
 }
